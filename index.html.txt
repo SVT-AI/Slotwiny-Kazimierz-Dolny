@@ -1,0 +1,294 @@
+export default function CzerwoneLakiAI() {
+  return (
+    div className=min-h-screen bg-[#f4efe7] text-[#2e2a26] overflow-x-hidden
+      { MOBILE + ANDROID OPTIMIZED LAYOUT }
+
+      { HEADER }
+      header className=sticky top-0 z-50 bg-[#f4efe7]95 backdrop-blur-xl border-b border-[#ddd1c1] shadow-sm
+        div className=max-w-7xl mx-auto flex items-center justify-between px-4 mdpx-6 py-4
+          div
+            h1 className=text-2xl mdtext-4xl font-bold text-[#7d3f2d] tracking-tight
+              Czerwone Łąki
+            h1
+            p className=text-xs mdtext-sm text-[#6d655f] tracking-wide
+              Słotwiny • Kazimierz Dolny
+            p
+          div
+
+          nav className=hidden lgflex gap-8 text-[17px] font-medium
+            a href=#dom className=hovertext-[#556b2f] transitionDomeka
+            a href=#rowery className=hovertext-[#556b2f] transitionRowerya
+            a href=#rezerwacje className=hovertext-[#556b2f] transitionRezerwacjea
+            a href=#ai className=hovertext-[#556b2f] transitionAIa
+            a href=#kontakt className=hovertext-[#556b2f] transitionKontakta
+          nav
+
+          button className=bg-[#556b2f] text-white px-4 mdpx-6 py-3 rounded-2xl shadow-lg hoverscale-105 transition-all text-sm mdtext-base
+            Rezerwuj
+          button
+        div
+      header
+
+      { HERO }
+      section
+        className=relative min-h-[100svh] flex items-center
+        style={{
+          backgroundImage
+            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('httpsimages.unsplash.comphoto-1506744038136-46273834b3fbq=80&w=1600&auto=format&fit=crop'),
+          backgroundSize 'cover',
+          backgroundPosition 'center',
+        }}
+      
+        div className=max-w-7xl mx-auto px-4 mdpx-6 py-20 grid lggrid-cols-2 gap-12 items-center w-full
+          div className=text-white
+            div className=inline-flex items-center gap-2 bg-white10 border border-white20 backdrop-blur-md rounded-full px-4 py-2 mb-6 text-sm
+              🌲 AI Smart Booking • Android Ready
+            div
+
+            h2 className=text-4xl smtext-5xl lgtext-7xl font-bold leading-tight mb-6
+              Domek i rowery
+              span className=block text-[#d8c59b]w sercu naturyspan
+            h2
+
+            p className=text-lg mdtext-xl text-gray-200 leading-relaxed max-w-2xl mb-8
+              Inteligentny system rezerwacji z AI. Rezerwacja domku,
+              rowerów, planowanie pobytu oraz automatyczne odpowiedzi dla gości.
+            p
+
+            div className=flex flex-col smflex-row gap-4
+              button className=bg-[#556b2f] px-7 py-4 rounded-2xl font-semibold text-lg shadow-xl hoverscale-105 transition-all
+                Sprawdź dostępność
+              button
+
+              button className=bg-white text-black px-7 py-4 rounded-2xl font-semibold text-lg hoverscale-105 transition-all
+                Kontakt
+              button
+            div
+          div
+
+          { AI PANEL }
+          div
+            id=ai
+            className=bg-white10 backdrop-blur-2xl border border-white20 rounded-[32px] p-5 mdp-8 shadow-2xl text-white
+          
+            div className=flex items-center justify-between mb-6
+              div
+                h3 className=text-2xl mdtext-3xl font-boldAsystent AIh3
+                p className=text-gray-200 text-sm mt-1
+                  Inteligentny concierge dla klientów
+                p
+              div
+
+              div className=w-4 h-4 rounded-full bg-green-400 animate-pulse 
+            div
+
+            div className=space-y-4
+              div className=bg-white10 rounded-2xl p-4 text-sm mdtext-base leading-relaxed
+                🤖 Witaj. Mogę pomóc w wyborze terminu, tras rowerowych,
+                atrakcji i przygotować plan pobytu.
+              div
+
+              div className=bg-[#556b2f] rounded-2xl p-4 ml-6 mdml-12 text-sm mdtext-base shadow-lg
+                Czy domek jest dostępny w weekend
+              div
+
+              div className=bg-white10 rounded-2xl p-4 text-sm mdtext-base leading-relaxed
+                Najbliższy wolny termin 12–15 sierpnia. Mogę przygotować rezerwację.
+              div
+            div
+
+            div className=mt-6 flex gap-3
+              input
+                type=text
+                placeholder=Zadaj pytanie AI...
+                className=flex-1 bg-white rounded-2xl px-4 py-3 text-black outline-none
+              
+              button className=bg-[#556b2f] px-5 rounded-2xl font-semibold hoverscale-105 transition-all
+                Wyślij
+              button
+            div
+          div
+        div
+      section
+
+      { FEATURES }
+      section className=max-w-7xl mx-auto px-4 mdpx-6 py-16 grid grid-cols-1 smgrid-cols-2 lggrid-cols-4 gap-6
+        {[
+          ['35 m²', 'Komfortowy domek dla 2–4 osób'],
+          ['350 zł', 'Cena za dobę pobytu'],
+          ['50 zł', 'Rower  doba'],
+          ['AI Booking', 'Inteligentne rezerwacje'],
+        ].map((item, index) = (
+          div
+            key={index}
+            className=bg-white rounded-[30px] p-8 shadow-lg border border-[#e8dfd1] hover-translate-y-2 transition-all
+          
+            h3 className=text-4xl font-bold text-[#556b2f] mb-4
+              {item[0]}
+            h3
+            p className=text-[#5c564f] leading-relaxed text-lg
+              {item[1]}
+            p
+          div
+        ))}
+      section
+
+      { BOOKING }
+      section
+        id=rezerwacje
+        className=max-w-7xl mx-auto px-4 mdpx-6 py-20
+      
+        div className=grid xlgrid-cols-2 gap-10
+          { HOUSE }
+          div className=bg-white rounded-[35px] p-6 mdp-10 shadow-2xl border border-[#e8dfd1]
+            div className=flex items-center justify-between mb-8
+              div
+                h3 className=text-3xl mdtext-4xl font-bold
+                  Rezerwacja domku
+                h3
+                p className=text-[#6b665f] mt-2
+                  Komfortowy pobyt blisko natury
+                p
+              div
+
+              div className=text-right
+                div className=text-5xl font-bold text-[#556b2f]
+                  350 zł
+                div
+                div className=text-[#6b665f] dobadiv
+              div
+            div
+
+            form className=space-y-5
+              input
+                type=text
+                placeholder=Imię i nazwisko
+                className=w-full border border-[#ddd] rounded-2xl p-4 outline-none focusring-2 focusring-[#556b2f]
+              
+
+              input
+                type=email
+                placeholder=Adres e-mail
+                className=w-full border border-[#ddd] rounded-2xl p-4 outline-none focusring-2 focusring-[#556b2f]
+              
+
+              div className=grid smgrid-cols-2 gap-4
+                input type=date className=border rounded-2xl p-4 
+                input type=date className=border rounded-2xl p-4 
+              div
+
+              select className=w-full border rounded-2xl p-4
+                option2 osobyoption
+                option3 osobyoption
+                option4 osobyoption
+              select
+
+              textarea
+                rows=4
+                placeholder=Dodatkowe informacje
+                className=w-full border rounded-2xl p-4
+              
+
+              button className=w-full bg-[#556b2f] text-white py-4 rounded-2xl text-lg font-semibold shadow-lg hoverscale-[1.01] transition-all
+                Zarezerwuj domek
+              button
+            form
+          div
+
+          { BIKES }
+          div
+            id=rowery
+            className=bg-[#556b2f] text-white rounded-[35px] p-6 mdp-10 shadow-2xl
+          
+            div className=flex items-center justify-between mb-8
+              div
+                h3 className=text-3xl mdtext-4xl font-bold
+                  Rezerwacja rowerów
+                h3
+                p className=text-[#e5e5e5] mt-2
+                  Wypożycz rowery online
+                p
+              div
+
+              div className=text-right
+                div className=text-5xl font-bold50 złdiv
+                div className=text-[#d9d9d9] rower  dobadiv
+              div
+            div
+
+            form className=space-y-5
+              input
+                type=text
+                placeholder=Imię i nazwisko
+                className=w-full rounded-2xl p-4 text-black
+              
+
+              input
+                type=email
+                placeholder=Adres e-mail
+                className=w-full rounded-2xl p-4 text-black
+              
+
+              div className=grid smgrid-cols-2 gap-4
+                input type=date className=rounded-2xl p-4 text-black 
+                input
+                  type=number
+                  placeholder=Liczba rowerów
+                  className=rounded-2xl p-4 text-black
+                
+              div
+
+              textarea
+                rows=4
+                placeholder=Dodatkowe informacje
+                className=w-full rounded-2xl p-4 text-black
+              
+
+              button className=w-full bg-white text-[#556b2f] py-4 rounded-2xl text-lg font-bold shadow-lg hoverscale-[1.01] transition-all
+                Zarezerwuj rowery
+              button
+            form
+          div
+        div
+      section
+
+      { GALLERY }
+      section className=max-w-7xl mx-auto px-4 mdpx-6 py-20
+        div className=flex items-center justify-between mb-10 flex-wrap gap-4
+          h2 className=text-4xl mdtext-5xl font-boldGaleriah2
+
+          div className=bg-[#556b2f] text-white px-5 py-3 rounded-full text-sm shadow-lg
+            Zdjęcia premium • HD
+          div
+        div
+
+        div className=grid grid-cols-1 mdgrid-cols-3 gap-6
+          {[
+            'httpsimages.unsplash.comphoto-1506744038136-46273834b3fbq=80&w=1200&auto=format&fit=crop',
+            'httpsimages.unsplash.comphoto-1448375240586-882707db888bq=80&w=1200&auto=format&fit=crop',
+            'httpsimages.unsplash.comphoto-1500530855697-b586d89ba3eeq=80&w=1200&auto=format&fit=crop',
+          ].map((img, i) = (
+            div
+              key={i}
+              className=overflow-hidden rounded-[30px] shadow-2xl
+            
+              img
+                src={img}
+                alt=Galeria
+                className=h-[320px] mdh-[420px] w-full object-cover hoverscale-110 transition-all duration-700
+              
+            div
+          ))}
+        div
+      section
+
+      { CONTACT }
+      section
+        id=kontakt
+        className=max-w-7xl mx-auto px-4 mdpx-6 py-20 grid lggrid-cols-2 gap-10
+      
+        div className=bg-white rounded-[35px] p-8 shadow-xl border border-[#e8dfd1]
+          h2 className=text-4xl font-bold mb-8Kontakth2
+
+          div className=space-y-5 text-lg text-[#5c564f]
+            p📍 Słot
