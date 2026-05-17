@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czerwone Łąki – Domek w naturze</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Czerwone Łąki</h1>
+    <p>Słotwiny – Kazimierz Dolny</p>
+    <nav>
+        <a href="#o-domku">O domku</a>
+        <a href="#wyposazenie">Wyposażenie</a>
+        <a href="#okolica">Okolica</a>
+        <a href="#cennik">Cennik</a>
+        <a href="#kontakt">Kontakt</a>
+    </nav>
+</header>
+
+<section id="intro">
+    <h2>Domek w sercu natury</h2>
+    <p>Odpocznij w otulinie Kazimierskiego Parku Krajobrazowego — wśród lasów, łąk i dzikiej przyrody.</p>
+</section>
+
+<section id="o-domku">
+    <h2>O domku</h2>
+    <p>Drewniany, parterowy domek o powierzchni 35 m², idealny dla 2–4 osób. Położony w centrum wsi Słotwiny, kilka minut od Kazimierza Dolnego.</p>
+</section>
+
+<section id="wyposazenie">
+    <h2>Wyposażenie</h2>
+    <ul>
+        <li>Salon z aneksem kuchennym</li>
+        <li>Sypialnia</li>
+        <li>Łazienka</li>
+        <li>Taras</li>
+        <li>Rowery dla gości</li>
+    </ul>
+</section>
+
+<section id="okolica">
+    <h2>Okolica</h2>
+    <p>Lasy liściaste i iglaste, duża działka, cisza, prywatność. Idealne miejsce na spacery, obserwację zwierząt i zbieranie grzybów.</p>
+</section>
+
+<section id="cennik">
+    <h2>Cennik</h2>
+    <p><strong>350 zł / doba</strong></p>
+    <p>Minimalny pobyt: 2 doby</p>
+    <p>Doba: 15:00 – 11:00</p>
+    <p>Pobyty z pupilem możliwe po uzgodnieniu.</p>
+</section>
+
+<section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Email: test@email@example.com</p>
+    <p>Lokalizacja: Słotwiny, Czerwone Łąki – 24‑120 Kazimierz Dolny</p>
+</section>
+
+<footer>
+    <p>Czerwone Łąki — domek w otulinie Kazimierskiego Parku Krajobrazowego</p>
+</footer>
+
+</body>
+</html>
