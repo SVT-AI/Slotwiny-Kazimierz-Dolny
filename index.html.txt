@@ -1,294 +1,379 @@
-export default function CzerwoneLakiAI() {
-  return (
-    div className=min-h-screen bg-[#f4efe7] text-[#2e2a26] overflow-x-hidden
-      { MOBILE + ANDROID OPTIMIZED LAYOUT }
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Czerwone Łąki – Premium Forest Minimal</title>
 
-      { HEADER }
-      header className=sticky top-0 z-50 bg-[#f4efe7]95 backdrop-blur-xl border-b border-[#ddd1c1] shadow-sm
-        div className=max-w-7xl mx-auto flex items-center justify-between px-4 mdpx-6 py-4
-          div
-            h1 className=text-2xl mdtext-4xl font-bold text-[#7d3f2d] tracking-tight
-              Czerwone Łąki
-            h1
-            p className=text-xs mdtext-sm text-[#6d655f] tracking-wide
-              Słotwiny • Kazimierz Dolny
-            p
-          div
+  <!-- TYPOGRAFIA PREMIUM -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
-          nav className=hidden lgflex gap-8 text-[17px] font-medium
-            a href=#dom className=hovertext-[#556b2f] transitionDomeka
-            a href=#rowery className=hovertext-[#556b2f] transitionRowerya
-            a href=#rezerwacje className=hovertext-[#556b2f] transitionRezerwacjea
-            a href=#ai className=hovertext-[#556b2f] transitionAIa
-            a href=#kontakt className=hovertext-[#556b2f] transitionKontakta
-          nav
+  <style>
+    :root {
+      --forest-dark: #2f3e2f;
+      --forest-mid: #4e6f50;
+      --forest-light: #e8ede6;
+      --beige: #f5f3ee;
+      --text-dark: #2a2a2a;
+      --radius: 16px;
+    }
 
-          button className=bg-[#556b2f] text-white px-4 mdpx-6 py-3 rounded-2xl shadow-lg hoverscale-105 transition-all text-sm mdtext-base
-            Rezerwuj
-          button
-        div
-      header
+    * {
+      box-sizing: border-box;
+    }
 
-      { HERO }
-      section
-        className=relative min-h-[100svh] flex items-center
-        style={{
-          backgroundImage
-            linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)), url('httpsimages.unsplash.comphoto-1506744038136-46273834b3fbq=80&w=1600&auto=format&fit=crop'),
-          backgroundSize 'cover',
-          backgroundPosition 'center',
-        }}
-      
-        div className=max-w-7xl mx-auto px-4 mdpx-6 py-20 grid lggrid-cols-2 gap-12 items-center w-full
-          div className=text-white
-            div className=inline-flex items-center gap-2 bg-white10 border border-white20 backdrop-blur-md rounded-full px-4 py-2 mb-6 text-sm
-              🌲 AI Smart Booking • Android Ready
-            div
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: var(--beige);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
 
-            h2 className=text-4xl smtext-5xl lgtext-7xl font-bold leading-tight mb-6
-              Domek i rowery
-              span className=block text-[#d8c59b]w sercu naturyspan
-            h2
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      z-index: 10;
+    }
 
-            p className=text-lg mdtext-xl text-gray-200 leading-relaxed max-w-2xl mb-8
-              Inteligentny system rezerwacji z AI. Rezerwacja domku,
-              rowerów, planowanie pobytu oraz automatyczne odpowiedzi dla gości.
-            p
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--forest-dark);
+      font-weight: 500;
+    }
 
-            div className=flex flex-col smflex-row gap-4
-              button className=bg-[#556b2f] px-7 py-4 rounded-2xl font-semibold text-lg shadow-xl hoverscale-105 transition-all
-                Sprawdź dostępność
-              button
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-              button className=bg-white text-black px-7 py-4 rounded-2xl font-semibold text-lg hoverscale-105 transition-all
-                Kontakt
-              button
-            div
-          div
+    .hero {
+      padding: 5rem 2rem 4rem;
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
 
-          { AI PANEL }
-          div
-            id=ai
-            className=bg-white10 backdrop-blur-2xl border border-white20 rounded-[32px] p-5 mdp-8 shadow-2xl text-white
-          
-            div className=flex items-center justify-between mb-6
-              div
-                h3 className=text-2xl mdtext-3xl font-boldAsystent AIh3
-                p className=text-gray-200 text-sm mt-1
-                  Inteligentny concierge dla klientów
-                p
-              div
+    .hero img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    }
 
-              div className=w-4 h-4 rounded-full bg-green-400 animate-pulse 
-            div
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      color: var(--forest-dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
 
-            div className=space-y-4
-              div className=bg-white10 rounded-2xl p-4 text-sm mdtext-base leading-relaxed
-                🤖 Witaj. Mogę pomóc w wyborze terminu, tras rowerowych,
-                atrakcji i przygotować plan pobytu.
-              div
+    .hero-sub {
+      margin-bottom: 0.75rem;
+      color: #555;
+    }
 
-              div className=bg-[#556b2f] rounded-2xl p-4 ml-6 mdml-12 text-sm mdtext-base shadow-lg
-                Czy domek jest dostępny w weekend
-              div
+    .hero-location {
+      font-size: 0.95rem;
+      color: #666;
+    }
 
-              div className=bg-white10 rounded-2xl p-4 text-sm mdtext-base leading-relaxed
-                Najbliższy wolny termin 12–15 sierpnia. Mogę przygotować rezerwację.
-              div
-            div
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      background: var(--forest-mid);
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
 
-            div className=mt-6 flex gap-3
-              input
-                type=text
-                placeholder=Zadaj pytanie AI...
-                className=flex-1 bg-white rounded-2xl px-4 py-3 text-black outline-none
-              
-              button className=bg-[#556b2f] px-5 rounded-2xl font-semibold hoverscale-105 transition-all
-                Wyślij
-              button
-            div
-          div
-        div
-      section
+    .btn:hover {
+      opacity: 0.9;
+    }
 
-      { FEATURES }
-      section className=max-w-7xl mx-auto px-4 mdpx-6 py-16 grid grid-cols-1 smgrid-cols-2 lggrid-cols-4 gap-6
-        {[
-          ['35 m²', 'Komfortowy domek dla 2–4 osób'],
-          ['350 zł', 'Cena za dobę pobytu'],
-          ['50 zł', 'Rower  doba'],
-          ['AI Booking', 'Inteligentne rezerwacje'],
-        ].map((item, index) = (
-          div
-            key={index}
-            className=bg-white rounded-[30px] p-8 shadow-lg border border-[#e8dfd1] hover-translate-y-2 transition-all
-          
-            h3 className=text-4xl font-bold text-[#556b2f] mb-4
-              {item[0]}
-            h3
-            p className=text-[#5c564f] leading-relaxed text-lg
-              {item[1]}
-            p
-          div
-        ))}
-      section
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-      { BOOKING }
-      section
-        id=rezerwacje
-        className=max-w-7xl mx-auto px-4 mdpx-6 py-20
-      
-        div className=grid xlgrid-cols-2 gap-10
-          { HOUSE }
-          div className=bg-white rounded-[35px] p-6 mdp-10 shadow-2xl border border-[#e8dfd1]
-            div className=flex items-center justify-between mb-8
-              div
-                h3 className=text-3xl mdtext-4xl font-bold
-                  Rezerwacja domku
-                h3
-                p className=text-[#6b665f] mt-2
-                  Komfortowy pobyt blisko natury
-                p
-              div
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.2rem;
+      color: var(--forest-dark);
+      margin-bottom: 1rem;
+    }
 
-              div className=text-right
-                div className=text-5xl font-bold text-[#556b2f]
-                  350 zł
-                div
-                div className=text-[#6b665f] dobadiv
-              div
-            div
+    .section-sub {
+      margin-bottom: 1.5rem;
+      color: #555;
+      max-width: 700px;
+    }
 
-            form className=space-y-5
-              input
-                type=text
-                placeholder=Imię i nazwisko
-                className=w-full border border-[#ddd] rounded-2xl p-4 outline-none focusring-2 focusring-[#556b2f]
-              
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
 
-              input
-                type=email
-                placeholder=Adres e-mail
-                className=w-full border border-[#ddd] rounded-2xl p-4 outline-none focusring-2 focusring-[#556b2f]
-              
+    .gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
 
-              div className=grid smgrid-cols-2 gap-4
-                input type=date className=border rounded-2xl p-4 
-                input type=date className=border rounded-2xl p-4 
-              div
+    .price-box {
+      background: white;
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      max-width: 480px;
+    }
 
-              select className=w-full border rounded-2xl p-4
-                option2 osobyoption
-                option3 osobyoption
-                option4 osobyoption
-              select
+    .price-box h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--forest-mid);
+    }
 
-              textarea
-                rows=4
-                placeholder=Dodatkowe informacje
-                className=w-full border rounded-2xl p-4
-              
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
 
-              button className=w-full bg-[#556b2f] text-white py-4 rounded-2xl text-lg font-semibold shadow-lg hoverscale-[1.01] transition-all
-                Zarezerwuj domek
-              button
-            form
-          div
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.9rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      background: #fff;
+    }
 
-          { BIKES }
-          div
-            id=rowery
-            className=bg-[#556b2f] text-white rounded-[35px] p-6 mdp-10 shadow-2xl
-          
-            div className=flex items-center justify-between mb-8
-              div
-                h3 className=text-3xl mdtext-4xl font-bold
-                  Rezerwacja rowerów
-                h3
-                p className=text-[#e5e5e5] mt-2
-                  Wypożycz rowery online
-                p
-              div
+    form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
 
-              div className=text-right
-                div className=text-5xl font-bold50 złdiv
-                div className=text-[#d9d9d9] rower  dobadiv
-              div
-            div
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--forest-light);
+      margin-top: 4rem;
+      color: var(--forest-dark);
+      font-size: 0.9rem;
+    }
 
-            form className=space-y-5
-              input
-                type=text
-                placeholder=Imię i nazwisko
-                className=w-full rounded-2xl p-4 text-black
-              
+    .map-box {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      background: #ddd;
+    }
 
-              input
-                type=email
-                placeholder=Adres e-mail
-                className=w-full rounded-2xl p-4 text-black
-              
+    .feature-box {
+      background: white;
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      margin-bottom: 2rem;
+    }
 
-              div className=grid smgrid-cols-2 gap-4
-                input type=date className=rounded-2xl p-4 text-black 
-                input
-                  type=number
-                  placeholder=Liczba rowerów
-                  className=rounded-2xl p-4 text-black
-                
-              div
+    .feature-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: var(--forest-mid);
+    }
 
-              textarea
-                rows=4
-                placeholder=Dodatkowe informacje
-                className=w-full rounded-2xl p-4 text-black
-              
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      .two-cols {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      nav a {
+        margin-left: 0.75rem;
+      }
+    }
+  </style>
+</head>
 
-              button className=w-full bg-white text-[#556b2f] py-4 rounded-2xl text-lg font-bold shadow-lg hoverscale-[1.01] transition-all
-                Zarezerwuj rowery
-              button
-            form
-          div
-        div
-      section
+<body>
 
-      { GALLERY }
-      section className=max-w-7xl mx-auto px-4 mdpx-6 py-20
-        div className=flex items-center justify-between mb-10 flex-wrap gap-4
-          h2 className=text-4xl mdtext-5xl font-boldGaleriah2
+<header>
+  <div><strong>Czerwone Łąki</strong></div>
+  <nav>
+    <a href="#o-domku">O domku</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#pole-namiotowe">Pole namiotowe</a>
+    <a href="#rowery">Rowery</a>
+    <a href="#cennik">Cennik</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
 
-          div className=bg-[#556b2f] text-white px-5 py-3 rounded-full text-sm shadow-lg
-            Zdjęcia premium • HD
-          div
-        div
+<section class="hero">
+  <div>
+    <h1>Domek w sercu lasu<br>Premium Forest Minimal</h1>
+    <p class="hero-sub">
+      Nowoczesny, minimalistyczny domek otoczony naturą. Cisza, las, drewno i pełna prywatność — idealne miejsce na odpoczynek.
+    </p>
+    <p class="hero-location">
+      Słotwiny, Czerwone Łąki – centrum wsi, 24‑120 Kazimierz Dolny
+    </p>
+    <a href="#kontakt" class="btn">Zarezerwuj termin</a>
+  </div>
 
-        div className=grid grid-cols-1 mdgrid-cols-3 gap-6
-          {[
-            'httpsimages.unsplash.comphoto-1506744038136-46273834b3fbq=80&w=1200&auto=format&fit=crop',
-            'httpsimages.unsplash.comphoto-1448375240586-882707db888bq=80&w=1200&auto=format&fit=crop',
-            'httpsimages.unsplash.comphoto-1500530855697-b586d89ba3eeq=80&w=1200&auto=format&fit=crop',
-          ].map((img, i) = (
-            div
-              key={i}
-              className=overflow-hidden rounded-[30px] shadow-2xl
-            
-              img
-                src={img}
-                alt=Galeria
-                className=h-[320px] mdh-[420px] w-full object-cover hoverscale-110 transition-all duration-700
-              
-            div
-          ))}
-        div
-      section
+  <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80"
+       alt="Drewniany domek w lesie">
+</section>
 
-      { CONTACT }
-      section
-        id=kontakt
-        className=max-w-7xl mx-auto px-4 mdpx-6 py-20 grid lggrid-cols-2 gap-10
-      
-        div className=bg-white rounded-[35px] p-8 shadow-xl border border-[#e8dfd1]
-          h2 className=text-4xl font-bold mb-8Kontakth2
+<section id="o-domku">
+  <h2>O domku</h2>
+  <p class="section-sub">
+    Drewniany domek o powierzchni 35 m², zaprojektowany w stylu minimalistycznym.
+    Wnętrze łączy naturalne materiały, jasne drewno i miękką zieleń.
+    Idealny dla 2–4 osób, z tarasem wychodzącym prosto na las.
+  </p>
+</section>
 
-          div className=space-y-5 text-lg text-[#5c564f]
-            p📍 Słot
+<section id="galeria">
+  <h2>Galeria</h2>
+  <p class="section-sub">
+    Kilka kadrów z domku i okolicy – las, drewno, światło.  
+    Zdjęcia możesz później podmienić na własne, zachowując układ strony.
+  </p>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" alt="Las o poranku">
+    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Wnętrze z drewnem">
+    <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=900&q=80" alt="Taras w lesie">
+  </div>
+</section>
+
+<section id="pole-namiotowe">
+  <h2>Pole namiotowe</h2>
+  <div class="feature-box">
+    <h3>Blisko natury, pod gwiazdami</h3>
+    <p>
+      Obok domku znajduje się kameralne pole namiotowe dla osób, które chcą spać jeszcze bliżej natury.
+      Trawiasty teren, drzewa dające cień, miejsce na ognisko i dostęp do podstawowych udogodnień.
+    </p>
+    <p>
+      Idealne dla małych grup, rodzin i osób podróżujących rowerem lub z plecakiem.
+    </p>
+  </div>
+</section>
+
+<section id="rowery">
+  <h2>Wypożyczanie rowerów</h2>
+  <div class="feature-box">
+    <h3>Leśne trasy na wyciągnięcie ręki</h3>
+    <p>
+      Do dyspozycji gości są rowery, którymi można eksplorować okoliczne lasy, wąwozy i drogi szutrowe.
+      Trasy w okolicy Kazimierza Dolnego i Nałęczowa sprzyjają spokojnym wycieczkom i dłuższym wyprawom.
+    </p>
+    <p>
+      Zapytaj o dostępność rowerów przy rezerwacji – pomożemy dobrać sprzęt do Twoich planów.
+    </p>
+  </div>
+</section>
+
+<section id="cennik">
+  <h2>Cennik</h2>
+  <div class="price-box">
+    <h3>350 zł / doba</h3>
+    <p>Minimalny pobyt: 2 doby</p>
+    <p>Doba: 15:00 – 11:00</p>
+    <p>Pobyty z pupilem możliwe (po uzgodnieniu)</p>
+    <p>Bezkontaktowe zameldowanie</p>
+    <a href="#kontakt" class="btn">Zarezerwuj termin</a>
+  </div>
+</section>
+
+<section id="lokalizacja">
+  <h2>Lokalizacja</h2>
+  <p class="section-sub">
+    Słotwiny, Czerwone Łąki – centrum wsi, 24‑120 Kazimierz Dolny.  
+    Blisko Kazimierza Dolnego, Nałęczowa i Lublina, a jednocześnie w otoczeniu lasów i łąk.
+  </p>
+  <div class="two-cols">
+    <div>
+      <p><strong>Dojazd:</strong></p>
+      <p>Kazimierz Dolny – ok. 7 km</p>
+      <p>Nałęczów – ok. 25 km</p>
+      <p>Lublin – ok. 45 km</p>
+    </div>
+    <div class="map-box">
+      <!-- Pinezka / mapa – możesz podmienić na dokładny embed -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.0000000000005!2d22.000000000000!3d51.300000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sS%C5%82otwiny!5e0!3m2!1spl!2spl!4v1700000000000"
+        width="100%"
+        height="260"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <h2>Kontakt</h2>
+  <p class="section-sub">
+    Napisz, aby sprawdzić dostępność terminu, dopytać o szczegóły pobytu, pole namiotowe lub rowery.
+  </p>
+  <div class="two-cols">
+    <form>
+      <input type="text" placeholder="Imię" />
+      <input type="email" placeholder="E-mail" />
+      <textarea rows="4" placeholder="Wiadomość"></textarea>
+      <button class="btn" type="submit">Wyślij</button>
+    </form>
+    <div>
+      <p><strong>Adres:</strong><br>
+        Słotwiny, Czerwone Łąki – centrum wsi<br>
+        24‑120 Kazimierz Dolny
+      </p>
+      <p><strong>E-mail:</strong><br>
+        kontakt@czerwone-laki.pl (podmień na swój)
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Czerwone Łąki – Domek i pole namiotowe w otulinie Kazimierskiego Parku Krajobrazowego.  
+  Słotwiny, Czerwone Łąki – centrum wsi, 24‑120 Kazimierz Dolny.
+</footer>
+
+</body>
+</html>
