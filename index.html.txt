@@ -105,6 +105,7 @@
 <footer>
   © 2026 Czerwone Łąki – Domek i pole namiotowe w otulinie Kazimierskiego Parku Krajobrazowego.  
   Słotwiny, Czerwone Łąki, 24‑120 Kazimierz Dolny. Domek w otulinie lasu.
+<footer>
 
 </body>
 </html>
