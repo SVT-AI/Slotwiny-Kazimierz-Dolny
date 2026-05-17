@@ -1,235 +1,19 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Czerwone Łąki – Premium Forest Minimal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Słotwiny – Kazimierz Dolny | Domek w lesie</title>
 
-  <!-- TYPOGRAFIA PREMIUM -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --forest-dark: #2f3e2f;
-      --forest-mid: #4e6f50;
-      --forest-light: #e8ede6;
-      --beige: #f5f3ee;
-      --text-dark: #2a2a2a;
-      --radius: 16px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, sans-serif;
-      background: var(--beige);
-      color: var(--text-dark);
-      line-height: 1.6;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.85);
-      backdrop-filter: blur(12px);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #ddd;
-      z-index: 10;
-    }
-
-    nav a {
-      margin-left: 1.5rem;
-      text-decoration: none;
-      color: var(--forest-dark);
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      padding: 5rem 2rem 4rem;
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .hero img {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
-    }
-
-    h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 3rem;
-      color: var(--forest-dark);
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .hero-sub {
-      margin-bottom: 0.75rem;
-      color: #555;
-    }
-
-    .hero-location {
-      font-size: 0.95rem;
-      color: #666;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.9rem 1.8rem;
-      background: var(--forest-mid);
-      color: white;
-      border-radius: 10px;
-      text-decoration: none;
-      margin-top: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 2.2rem;
-      color: var(--forest-dark);
-      margin-bottom: 1rem;
-    }
-
-    .section-sub {
-      margin-bottom: 1.5rem;
-      color: #555;
-      max-width: 700px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-
-    .price-box {
-      background: white;
-      padding: 2.5rem;
-      border-radius: var(--radius);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-      max-width: 480px;
-    }
-
-    .price-box h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: var(--forest-mid);
-    }
-
-    .two-cols {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 2rem;
-      align-items: start;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 0.9rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      background: #fff;
-    }
-
-    form textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: var(--forest-light);
-      margin-top: 4rem;
-      color: var(--forest-dark);
-      font-size: 0.9rem;
-    }
-
-    .map-box {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      background: #ddd;
-    }
-
-    .feature-box {
-      background: white;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-      margin-bottom: 2rem;
-    }
-
-    .feature-box h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      color: var(--forest-mid);
-    }
-
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-      .two-cols {
-        grid-template-columns: 1fr;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-      nav a {
-        margin-left: 0.75rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
 
 <header>
-  <div><strong>Czerwone Łąki</strong></div>
+  <div><strong>Słotwiny – Kazimierz Dolny</strong></div>
   <nav>
     <a href="#o-domku">O domku</a>
     <a href="#galeria">Galeria</a>
@@ -247,13 +31,12 @@
       Nowoczesny, minimalistyczny domek otoczony naturą. Cisza, las, drewno i pełna prywatność — idealne miejsce na odpoczynek.
     </p>
     <p class="hero-location">
-      Słotwiny, Czerwone Łąki – centrum wsi, 24‑120 Kazimierz Dolny
+      Słotwiny – 24‑120 Kazimierz Dolny
     </p>
     <a href="#kontakt" class="btn">Zarezerwuj termin</a>
   </div>
 
-  <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80"
-       alt="Drewniany domek w lesie">
+  <img src="/public/img/hero.jpg" alt="Drewniany domek w lesie">
 </section>
 
 <section id="o-domku">
@@ -261,20 +44,17 @@
   <p class="section-sub">
     Drewniany domek o powierzchni 35 m², zaprojektowany w stylu minimalistycznym.
     Wnętrze łączy naturalne materiały, jasne drewno i miękką zieleń.
-    Idealny dla 2–4 osób, z tarasem wychodzącym prosto na las.
   </p>
 </section>
 
 <section id="galeria">
   <h2>Galeria</h2>
-  <p class="section-sub">
-    Kilka kadrów z domku i okolicy – las, drewno, światło.  
-    Zdjęcia możesz później podmienić na własne, zachowując układ strony.
-  </p>
+  <p class="section-sub">Kilka kadrów z domku i okolicy.</p>
+
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80" alt="Las o poranku">
-    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Wnętrze z drewnem">
-    <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=900&q=80" alt="Taras w lesie">
+    <img src="/public/img/galeria1.jpg" alt="Las o poranku">
+    <img src="/public/img/galeria2.jpg" alt="Wnętrze z drewnem">
+    <img src="/public/img/galeria3.jpg" alt="Taras w lesie">
   </div>
 </section>
 
@@ -282,13 +62,7 @@
   <h2>Pole namiotowe</h2>
   <div class="feature-box">
     <h3>Blisko natury, pod gwiazdami</h3>
-    <p>
-      Obok domku znajduje się kameralne pole namiotowe dla osób, które chcą spać jeszcze bliżej natury.
-      Trawiasty teren, drzewa dające cień, miejsce na ognisko i dostęp do podstawowych udogodnień.
-    </p>
-    <p>
-      Idealne dla małych grup, rodzin i osób podróżujących rowerem lub z plecakiem.
-    </p>
+    <p>Kameralne pole namiotowe obok domku.</p>
   </div>
 </section>
 
@@ -296,13 +70,7 @@
   <h2>Wypożyczanie rowerów</h2>
   <div class="feature-box">
     <h3>Leśne trasy na wyciągnięcie ręki</h3>
-    <p>
-      Do dyspozycji gości są rowery, którymi można eksplorować okoliczne lasy, wąwozy i drogi szutrowe.
-      Trasy w okolicy Kazimierza Dolnego i Nałęczowa sprzyjają spokojnym wycieczkom i dłuższym wyprawom.
-    </p>
-    <p>
-      Zapytaj o dostępność rowerów przy rezerwacji – pomożemy dobrać sprzęt do Twoich planów.
-    </p>
+    <p>Do dyspozycji gości są rowery.</p>
   </div>
 </section>
 
@@ -311,69 +79,32 @@
   <div class="price-box">
     <h3>350 zł / doba</h3>
     <p>Minimalny pobyt: 2 doby</p>
-    <p>Doba: 15:00 – 11:00</p>
-    <p>Pobyty z pupilem możliwe (po uzgodnieniu)</p>
-    <p>Bezkontaktowe zameldowanie</p>
     <a href="#kontakt" class="btn">Zarezerwuj termin</a>
-  </div>
-</section>
-
-<section id="lokalizacja">
-  <h2>Lokalizacja</h2>
-  <p class="section-sub">
-    Słotwiny, Czerwone Łąki – centrum wsi, 24‑120 Kazimierz Dolny.  
-    Blisko Kazimierza Dolnego, Nałęczowa i Lublina, a jednocześnie w otoczeniu lasów i łąk.
-  </p>
-  <div class="two-cols">
-    <div>
-      <p><strong>Dojazd:</strong></p>
-      <p>Kazimierz Dolny – ok. 7 km</p>
-      <p>Nałęczów – ok. 25 km</p>
-      <p>Lublin – ok. 45 km</p>
-    </div>
-    <div class="map-box">
-      <!-- Pinezka / mapa – możesz podmienić na dokładny embed -->
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2464.0000000000005!2d22.000000000000!3d51.300000000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sS%C5%82otwiny!5e0!3m2!1spl!2spl!4v1700000000000"
-        width="100%"
-        height="260"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
   </div>
 </section>
 
 <section id="kontakt">
   <h2>Kontakt</h2>
-  <p class="section-sub">
-    Napisz, aby sprawdzić dostępność terminu, dopytać o szczegóły pobytu, pole namiotowe lub rowery.
-  </p>
+  <p class="section-sub">Napisz, aby sprawdzić dostępność terminu.</p>
+
   <div class="two-cols">
     <form>
-      <input type="text" placeholder="Imię" />
-      <input type="email" placeholder="E-mail" />
-      <textarea rows="4" placeholder="Wiadomość"></textarea>
+      <input type="text" placeholder="Imię" required>
+      <input type="email" placeholder="E-mail" required>
+      <textarea rows="4" placeholder="Wiadomość" required></textarea>
       <button class="btn" type="submit">Wyślij</button>
     </form>
+
     <div>
-      <p><strong>Adres:</strong><br>
-        Słotwiny, Czerwone Łąki – centrum wsi<br>
-        24‑120 Kazimierz Dolny
-      </p>
-      <p><strong>E-mail:</strong><br>
-        kontakt@czerwone-laki.pl (podmień na swój)
-      </p>
+      <p><strong>Adres:</strong><br>Słotwiny – 24‑120 Kazimierz Dolny</p>
+      <p><strong>E-mail:</strong><br>kontakt@slotwiny-kazimierz-dolny.pl</p>
     </div>
   </div>
 </section>
 
 <footer>
   © 2026 Czerwone Łąki – Domek i pole namiotowe w otulinie Kazimierskiego Parku Krajobrazowego.  
-  Słotwiny, Czerwone Łąki – centrum wsi, 24‑120 Kazimierz Dolny.
-</footer>
+  Słotwiny, Czerwone Łąki, 24‑120 Kazimierz Dolny. Domek w otulinie lasu.
 
 </body>
 </html>
