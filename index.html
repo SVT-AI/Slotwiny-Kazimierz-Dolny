@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Czerwone Łąki — Premium Nature House</title>
+<title>Czerwone Łąki — Premium Domek w Naturze</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <style>
 
 :root{
     --gold:#d6b36a;
+    --dark:#0e0e0e;
     --glass:rgba(255,255,255,.08);
+    --glass2:rgba(255,255,255,.05);
+    --text:#ffffff;
     --shadow:0 12px 40px rgba(0,0,0,.45);
+    --radius:28px;
 }
 
 *{
@@ -26,9 +36,56 @@
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#0d0d0d;
+    background:#080808;
     color:white;
     overflow-x:hidden;
+}
+
+/* NAV */
+
+.nav{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:95%;
+    max-width:1150px;
+    padding:16px 22px;
+    z-index:9999;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+}
+
+.logo{
+    font-size:1rem;
+    letter-spacing:2px;
+    color:var(--gold);
+    font-weight:700;
+}
+
+.nav-links{
+    display:flex;
+    gap:24px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:.92rem;
+    opacity:.9;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
 }
 
 /* HERO */
@@ -39,19 +96,20 @@ header{
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:20px;
-    text-align:center;
     overflow:hidden;
+    padding:120px 20px 40px;
 }
 
 header::before{
     content:"";
     position:absolute;
     inset:0;
+
     background:
-    linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.68)),
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.75)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2200&auto=format&fit=crop')
     center/cover no-repeat;
+
     transform:scale(1.05);
 }
 
@@ -59,47 +117,56 @@ header::before{
     position:relative;
     z-index:2;
     width:100%;
-    max-width:760px;
-    padding:45px 30px;
-    border-radius:32px;
+    max-width:1200px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero-card{
     background:rgba(0,0,0,.28);
     backdrop-filter:blur(12px);
+
     border:1px solid rgba(255,255,255,.08);
+
+    border-radius:32px;
+    padding:50px;
+
     box-shadow:var(--shadow);
 }
 
-.logo{
+.hero-top{
     color:var(--gold);
     letter-spacing:4px;
-    font-size:.9rem;
-    margin-bottom:12px;
+    margin-bottom:14px;
+    font-size:.85rem;
 }
 
 .hero h1{
-    font-size:3rem;
-    line-height:1.05;
-    margin-bottom:20px;
+    font-size:5rem;
+    line-height:1;
+    margin-bottom:22px;
 }
 
 .hero p{
-    max-width:580px;
-    margin:auto;
+    line-height:1.9;
     opacity:.92;
-    line-height:1.8;
     font-size:1rem;
 }
 
 .hero-buttons{
     display:flex;
-    flex-direction:column;
-    gap:14px;
-    margin-top:35px;
+    gap:16px;
+    margin-top:34px;
+    flex-wrap:wrap;
 }
 
 .hero-buttons a{
     text-decoration:none;
     color:white;
-    padding:15px;
+    padding:16px 24px;
     border-radius:18px;
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.08);
@@ -112,146 +179,184 @@ header::before{
     color:black;
 }
 
-/* FLOAT NAV */
-
-.nav{
-    position:fixed;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:15px;
-    width:95%;
-    max-width:750px;
-    display:flex;
-    justify-content:space-around;
-    background:rgba(0,0,0,.65);
-    backdrop-filter:blur(14px);
-    padding:15px 10px;
-    border-radius:22px;
-    z-index:999;
-    border:1px solid rgba(255,255,255,.08);
+.hero-image img{
+    width:100%;
+    border-radius:32px;
+    box-shadow:var(--shadow);
+    object-fit:cover;
+    min-height:580px;
 }
 
-.nav a{
-    color:white;
-    text-decoration:none;
-    font-size:.78rem;
-}
-
-/* SECTIONS */
+/* SECTION */
 
 .section{
     position:relative;
-    padding:70px 18px;
+    padding:100px 20px;
     overflow:hidden;
 }
 
-.bg{
+.section-bg{
     position:absolute;
     inset:0;
     background-size:cover;
     background-position:center;
-    filter:brightness(.42);
+    filter:brightness(.35);
 }
 
 .overlay{
     position:absolute;
     inset:0;
-    background:rgba(0,0,0,.35);
+    background:rgba(0,0,0,.42);
 }
 
 .container{
     position:relative;
     z-index:2;
-    max-width:1100px;
+    max-width:1200px;
     margin:auto;
+}
+
+.section-title{
+    margin-bottom:40px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    margin-bottom:12px;
+    color:var(--gold);
+}
+
+.section-title p{
+    max-width:700px;
+    line-height:1.8;
+    opacity:.9;
+}
+
+/* CARDS */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
 }
 
 .card{
     background:var(--glass);
-    backdrop-filter:blur(12px);
-    border-radius:28px;
-    padding:28px;
+    backdrop-filter:blur(10px);
+    border-radius:var(--radius);
     border:1px solid rgba(255,255,255,.08);
+    padding:28px;
     box-shadow:var(--shadow);
 }
 
-h2{
-    font-size:2rem;
-    margin-bottom:20px;
-    color:var(--gold);
-}
-
-p{
-    line-height:1.8;
-    font-size:.95rem;
-}
-
-.grid{
-    display:grid;
-    gap:16px;
-    margin-top:24px;
-}
-
 .item{
-    padding:18px;
-    border-radius:18px;
-    background:rgba(255,255,255,.06);
+    background:var(--glass2);
+    border-radius:20px;
+    padding:20px;
     border:1px solid rgba(255,255,255,.05);
+    transition:.3s;
+}
+
+.item:hover{
+    transform:translateY(-4px);
+}
+
+/* GALLERY */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.gallery img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:24px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.02);
+}
+
+/* PRICE */
+
+.price-card{
+    text-align:center;
 }
 
 .price{
-    font-size:3rem;
+    font-size:4rem;
     color:var(--gold);
     font-weight:700;
 }
 
+.price-info{
+    margin-top:16px;
+    line-height:2;
+    opacity:.92;
+}
+
 /* MAP */
 
-.map{
-    margin-top:25px;
-    border-radius:22px;
+#map{
+    height:650px;
+    border-radius:32px;
     overflow:hidden;
+    margin-top:25px;
     border:1px solid rgba(255,255,255,.08);
 }
 
-.map iframe{
-    width:100%;
-    height:320px;
-    border:none;
+/* REVIEWS */
+
+.reviews{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.review{
+    background:var(--glass);
+    padding:28px;
+    border-radius:26px;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 /* FORM */
 
 form{
-    margin-top:30px;
     display:grid;
-    gap:14px;
+    gap:16px;
+    margin-top:30px;
 }
 
 input,
 textarea{
     width:100%;
-    padding:16px;
+    padding:18px;
     border:none;
-    border-radius:16px;
+    outline:none;
+    border-radius:18px;
     background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.08);
     color:white;
     font-family:'Poppins',sans-serif;
-    outline:none;
-    border:1px solid rgba(255,255,255,.08);
 }
 
 textarea{
-    min-height:140px;
+    min-height:160px;
     resize:vertical;
 }
 
 button{
     border:none;
-    padding:16px;
-    border-radius:16px;
     background:var(--gold);
     color:black;
+    padding:18px;
+    border-radius:18px;
     font-weight:700;
     cursor:pointer;
     transition:.3s;
@@ -261,66 +366,112 @@ button:hover{
     transform:translateY(-2px);
 }
 
+/* LIGHTBOX */
+
+.lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.94);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+}
+
+.lightbox.active{
+    display:flex;
+}
+
+.lightbox img{
+    max-width:92%;
+    max-height:90vh;
+    border-radius:18px;
+}
+
+.lightbox-close{
+    position:absolute;
+    top:30px;
+    right:40px;
+    font-size:2rem;
+    cursor:pointer;
+}
+
 /* COOKIES */
 
 .cookies{
     position:fixed;
-    right:15px;
-    bottom:95px;
-    width:320px;
-    z-index:9999;
-    padding:20px;
-    border-radius:22px;
+    bottom:20px;
+    right:20px;
+    width:340px;
+    z-index:99999;
+
     background:rgba(0,0,0,.92);
+    backdrop-filter:blur(14px);
+
+    border-radius:24px;
+    padding:24px;
+
     border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(12px);
+
     box-shadow:var(--shadow);
 }
 
 .cookies p{
-    font-size:.8rem;
-    line-height:1.6;
-    margin-bottom:14px;
+    font-size:.84rem;
+    line-height:1.7;
+    margin-bottom:16px;
 }
 
 /* FOOTER */
 
 footer{
+    padding:60px 20px;
     text-align:center;
-    padding:50px 20px 120px;
     background:black;
     color:#999;
-    font-size:.82rem;
 }
 
-/* DESKTOP */
+/* MOBILE */
 
-@media(min-width:768px){
+@media(max-width:980px){
+
+    .hero{
+        grid-template-columns:1fr;
+    }
 
     .hero h1{
-        font-size:5rem;
+        font-size:3.5rem;
     }
 
-    .hero-buttons{
-        flex-direction:row;
-        justify-content:center;
-    }
-
-    .grid{
-        grid-template-columns:repeat(2,1fr);
+    .grid,
+    .gallery,
+    .reviews{
+        grid-template-columns:1fr;
     }
 
     .nav{
-        top:20px;
-        bottom:auto;
+        flex-direction:column;
+        gap:16px;
     }
 
-    .nav a{
-        font-size:.95rem;
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:14px;
     }
 
-    .card{
-        padding:45px;
+    .hero-card{
+        padding:34px;
+    }
+
+    #map{
+        height:420px;
+    }
+
+    .cookies{
+        width:auto;
+        left:14px;
+        right:14px;
     }
 
 }
@@ -333,20 +484,32 @@ footer{
 <!-- NAV -->
 
 <div class="nav">
-    <a href="#dom">Domek</a>
-    <a href="#komfort">Komfort</a>
-    <a href="#okolica">Okolica</a>
-    <a href="#mapa">Mapa</a>
-    <a href="#kontakt">Kontakt</a>
+
+    <div class="logo">
+        CZERWONE ŁĄKI
+    </div>
+
+    <div class="nav-links">
+        <a href="#o-domku">O domku</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#komfort">Komfort</a>
+        <a href="#atrakcje">Atrakcje</a>
+        <a href="#mapa">Mapa</a>
+        <a href="#opinie">Opinie</a>
+        <a href="#kontakt">Kontakt</a>
+    </div>
+
 </div>
 
 <!-- HERO -->
 
 <header>
 
-    <div class="hero">
+<div class="hero">
 
-        <div class="logo">
+    <div class="hero-card">
+
+        <div class="hero-top">
             PREMIUM NATURE HOUSE
         </div>
 
@@ -357,63 +520,105 @@ footer{
         <p>
             Ekskluzywny domek położony wśród natury,
             lasów i ciszy Kazimierskiego Parku Krajobrazowego.
-            Prywatna przestrzeń do odpoczynku przez cały rok.
+            Prywatna działka, nowoczesne wnętrza i pełen relaks
+            blisko Kazimierza Dolnego.
         </p>
 
         <div class="hero-buttons">
             <a href="#kontakt">Rezerwacja pobytu</a>
-            <a href="#mapa">Zobacz lokalizację</a>
+            <a href="#galeria">Zobacz galerię</a>
         </div>
 
     </div>
+
+    <div class="hero-image">
+        <img
+        src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1800&auto=format&fit=crop"
+        alt="Domek">
+    </div>
+
+</div>
 
 </header>
 
-<!-- DOMEK -->
+<!-- O DOMKU -->
 
-<section class="section" id="dom">
+<section class="section" id="o-domku">
 
-    <div class="bg"
-    style="background-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2000&auto=format&fit=crop');">
-    </div>
+<div class="section-bg"
+style="background-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2200&auto=format&fit=crop');">
+</div>
 
-    <div class="overlay"></div>
+<div class="overlay"></div>
 
-    <div class="container">
+<div class="container">
 
-        <div class="card">
+<div class="section-title">
 
-            <h2>Domek premium</h2>
+<h2>O miejscu</h2>
 
-            <p>
-                Nowoczesny drewniany domek o powierzchni 35 m²,
-                przygotowany dla 2–4 osób.
-                Połączenie natury, komfortu i prywatności.
-            </p>
+<p>
+Kameralny domek 35 m² dla 2–4 osób.
+Prywatna działka o powierzchni 0,7 ha,
+miejsce na ognisko, własny fragment lasu
+i wyjątkowy klimat natury przez cały rok.
+</p>
 
-            <div class="grid">
+</div>
 
-                <div class="item">
-                    🌲 Otoczenie lasów i natury
-                </div>
+<div class="grid">
 
-                <div class="item">
-                    🏡 Komfortowe wnętrza
-                </div>
+<div class="card">
+<div class="item">🌲 Cisza i prywatność</div>
+</div>
 
-                <div class="item">
-                    🔥 Ognisko z kiełbaskami
-                </div>
+<div class="card">
+<div class="item">🏡 Designerskie wnętrze</div>
+</div>
 
-                <div class="item">
-                    🚴 Rowery dla gości
-                </div>
+<div class="card">
+<div class="item">🔥 Ognisko i relaks</div>
+</div>
 
-            </div>
+<div class="card">
+<div class="item">🚴 Rowery dla gości</div>
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section class="section" id="galeria">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Galeria</h2>
+
+<p>
+Nowoczesny domek w otoczeniu lasów,
+natury i klimatycznych tras spacerowych.
+</p>
+
+</div>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop">
+<img src="https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1400&auto=format&fit=crop">
+
+</div>
+
+</div>
 
 </section>
 
@@ -421,69 +626,70 @@ footer{
 
 <section class="section" id="komfort">
 
-    <div class="bg"
-    style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2000&auto=format&fit=crop');">
-    </div>
+<div class="section-bg"
+style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2200&auto=format&fit=crop');">
+</div>
 
-    <div class="overlay"></div>
+<div class="overlay"></div>
 
-    <div class="container">
+<div class="container">
 
-        <div class="card">
+<div class="section-title">
 
-            <h2>Wyposażenie i komfort</h2>
+<h2>Komfort i wyposażenie</h2>
 
-            <div class="grid">
+<p>
+Połączenie natury, wygody i nowoczesnego designu.
+Domek przygotowany na pobyty przez cały rok.
+</p>
 
-                <div class="item">✔ Salon z aneksem kuchennym</div>
-                <div class="item">✔ Oddzielna sypialnia</div>
-                <div class="item">✔ Taras wypoczynkowy</div>
-                <div class="item">✔ Prywatny parking</div>
-                <div class="item">✔ Łazienka z prysznicem</div>
-                <div class="item">✔ Cisza i prywatność</div>
+</div>
 
-            </div>
+<div class="grid">
 
-        </div>
+<div class="card">✔ Salon z aneksem kuchennym</div>
+<div class="card">✔ Oddzielna sypialnia</div>
+<div class="card">✔ Taras wypoczynkowy</div>
+<div class="card">✔ Prywatny parking</div>
+<div class="card">✔ Łazienka z prysznicem</div>
+<div class="card">✔ Ogrzewanie całoroczne</div>
 
-    </div>
+</div>
+
+</div>
 
 </section>
 
-<!-- OKOLICA -->
+<!-- ATRAKCJE -->
 
-<section class="section" id="okolica">
+<section class="section" id="atrakcje">
 
-    <div class="bg"
-    style="background-image:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000&auto=format&fit=crop');">
-    </div>
+<div class="container">
 
-    <div class="overlay"></div>
+<div class="section-title">
 
-    <div class="container">
+<h2>Atrakcje okolicy</h2>
 
-        <div class="card">
+<p>
+Kazimierz Dolny i okolice oferują
+jedne z najbardziej klimatycznych terenów
+na Lubelszczyźnie.
+</p>
 
-            <h2>Okolica</h2>
+</div>
 
-            <p>
-                Kazimierz Dolny, szlaki spacerowe,
-                trasy rowerowe oraz dzika przyroda
-                znajdują się w bezpośrednim otoczeniu domku.
-            </p>
+<div class="grid">
 
-            <div class="grid">
+<div class="card">🏰 Kazimierz Dolny</div>
+<div class="card">🌊 Nadwiślańskie spacery</div>
+<div class="card">🚴 Trasy rowerowe</div>
+<div class="card">🌳 Wąwozy lessowe</div>
+<div class="card">🛶 Prom do Janowca</div>
+<div class="card">🚂 Kolejka wąskotorowa</div>
 
-                <div class="item">🍄 Grzybobranie</div>
-                <div class="item">🚶 Spacery po lesie</div>
-                <div class="item">📸 Fotografia natury</div>
-                <div class="item">🦌 Obserwacja zwierząt</div>
+</div>
 
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
@@ -491,34 +697,98 @@ footer{
 
 <section class="section" id="mapa">
 
-    <div class="bg"
-    style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2000&auto=format&fit=crop');">
-    </div>
+<div class="container">
 
-    <div class="overlay"></div>
+<div class="section-title">
 
-    <div class="container">
+<h2>Mapa atrakcji</h2>
 
-        <div class="card">
+<p>
+Najważniejsze miejsca i trasy
+w okolicy Kazimierza Dolnego.
+</p>
 
-            <h2>Lokalizacja</h2>
+</div>
 
-            <p>
-                Słotwiny — Kazimierz Dolny
-            </p>
+<div id="map"></div>
 
-            <div class="map">
+</div>
 
-                <iframe
-                src="https://www.google.com/maps?q=Kazimierz+Dolny&output=embed"
-                loading="lazy">
-                </iframe>
+</section>
 
-            </div>
+<!-- CENNIK -->
 
-        </div>
+<section class="section">
 
-    </div>
+<div class="section-bg"
+style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2200&auto=format&fit=crop');">
+</div>
+
+<div class="overlay"></div>
+
+<div class="container">
+
+<div class="card price-card">
+
+<div class="price">
+350 zł
+</div>
+
+<div class="price-info">
+
+<div>za dobę</div>
+<div>Minimalny pobyt: 2 noce</div>
+<div>Doba hotelowa: 15:00 – 11:00</div>
+<div>Zwierzęta po wcześniejszym uzgodnieniu</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- OPINIE -->
+
+<section class="section" id="opinie">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Opinie gości</h2>
+
+</div>
+
+<div class="reviews">
+
+<div class="review">
+<strong>Anna • Warszawa</strong>
+<p>
+Piękne miejsce, pełna cisza
+i wyjątkowy klimat natury.
+</p>
+</div>
+
+<div class="review">
+<strong>Piotr • Kraków</strong>
+<p>
+Świetna lokalizacja i bardzo nowoczesny domek.
+</p>
+</div>
+
+<div class="review">
+<strong>Katarzyna • Gdańsk</strong>
+<p>
+Ogromny plus za prywatność
+i bliskość Kazimierza Dolnego.
+</p>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
@@ -526,226 +796,132 @@ footer{
 
 <section class="section" id="kontakt">
 
-    <div class="bg"
-    style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000&auto=format&fit=crop');">
-    </div>
-
-    <div class="overlay"></div>
-
-    <div class="container">
-
-        <div class="card">
-
-            <h2>Kontakt i rezerwacja</h2>
-
-            <p>
-                Skontaktuj się w sprawie dostępnych terminów.
-            </p>
-
-            <!-- FORMULARZ EMAIL -->
-
-            <form
-            action="https://formsubmit.co/tokarskymaciej@gmail.com"
-            method="POST">
-
-                <input
-                type="text"
-                name="name"
-                placeholder="Imię"
-                required>
-
-                <input
-                type="email"
-                name="email"
-                placeholder="Twój email"
-                required>
-
-                <textarea
-                name="message"
-                placeholder="Treść wiadomości"
-                required></textarea>
-
-                <!-- UKRYTE OPCJE -->
-
-                <input type="hidden"
-                name="_subject"
-                value="Nowa wiadomość — Czerwone Łąki">
-
-                <input type="hidden"
-                name="_captcha"
-                value="false">
-
-                <button type="submit">
-                    Wyślij wiadomość
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- COOKIES -->
-
-<div class="cookies" id="cookies">
-
-    <p>
-        Strona wykorzystuje pliki cookies
-        w celu poprawnego działania serwisu,
-        analizy ruchu oraz obsługi formularzy kontaktowych.
-    </p>
-
-    <button onclick="acceptCookies()">
-        Akceptuję
-    </button>
-
+<div class="section-bg"
+style="background-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=2200&auto=format&fit=crop');">
 </div>
 
-<footer>
-    © 2026 Czerwone Łąki — Premium Nature House
-</footer>
+<div class="overlay"></div>
 
-<script>
+<div class="container">
 
-function acceptCookies(){
+<div class="card">
 
-    localStorage.setItem("cookiesAccepted", "true");
-    document.getElementById("cookies").style.display = "none";
+<div class="section-title">
 
-}
-
-window.onload = function(){
-
-    if(localStorage.getItem("cookiesAccepted")){
-
-        document.getElementById("cookies").style.display = "none";
-
-    }
-
-}
-
-</script>
-
-<!-- ATRAKCJE -->
-
-<section id="atrakcje" class="reveal">
-
-<h2>Atrakcje okolicy</h2>
-
-<div id="attractionsMap"></div>
-
-</section>
-
-<!-- REVIEWS -->
-
-<section id="opinie" class="reveal">
-
-<h2>Opinie gości</h2>
-
-<div class="reviews-grid">
-
-<div class="review-card glass">
-
-<strong>Anna • Warszawa</strong>
+<h2>Kontakt i rezerwacja</h2>
 
 <p>
-„Najbardziej klimatyczne miejsce,
-w jakim byliśmy od lat.”
+Skontaktuj się w sprawie dostępnych terminów.
 </p>
 
 </div>
-
-<div class="review-card glass">
-
-<strong>Piotr • Kraków</strong>
-
-<p>
-„Prywatny las robi niesamowity klimat.
-Wieczory przy ognisku były genialne.”
-</p>
-
-</div>
-
-<div class="review-card glass">
-
-<strong>Katarzyna • Gdańsk</strong>
-
-<p>
-„Wygląda jeszcze lepiej niż na zdjęciach.”
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="kontakt" class="reveal">
-
-<h2>Rezerwacja pobytu</h2>
-
-<p class="section-sub">
-Napisz do nas i sprawdź dostępność terminów.
-</p>
 
 <form
-action="https://formspree.io/f/yourID"
+action="https://formsubmit.co/tokarskymaciej@gmail.com"
 method="POST">
 
-<input type="text" placeholder="Imię" required>
+<input
+type="text"
+name="name"
+placeholder="Imię"
+required>
 
-<input type="email" placeholder="E-mail" required>
-
-<input type="date" required>
-
-<input type="date" required>
+<input
+type="email"
+name="email"
+placeholder="Adres e-mail"
+required>
 
 <textarea
-rows="6"
-placeholder="Dodatkowe informacje"></textarea>
+name="message"
+placeholder="Treść wiadomości"
+required></textarea>
 
-<button class="btn btn-primary" type="submit">
-Wyślij zapytanie
+<input
+type="hidden"
+name="_subject"
+value="Nowa rezerwacja — Czerwone Łąki">
+
+<input
+type="hidden"
+name="_captcha"
+value="false">
+
+<button type="submit">
+Wyślij wiadomość
 </button>
 
 </form>
 
-</section>
-
-<footer>
-
-© 2026 Czerwone Łąki • Luxury Nature Retreat
-
-</footer>
-
-<!-- MOBILE BUTTON -->
-
-<div class="mobile-book">
-
-<a href="#kontakt" class="btn btn-primary"
-style="display:block;text-align:center;">
-Zarezerwuj pobyt
-</a>
+</div>
 
 </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+© 2026 Czerwone Łąki — Premium Nature House
+</footer>
 
 <!-- LIGHTBOX -->
 
 <div class="lightbox" id="lightbox">
 
 <span class="lightbox-close" id="lightboxClose">
-&times;
+×
 </span>
 
 <img id="lightboxImg">
 
 </div>
 
+<!-- COOKIES -->
+
+<div class="cookies" id="cookies">
+
+<p>
+Ta strona wykorzystuje pliki cookies
+w celu poprawnego działania serwisu,
+obsługi formularzy oraz analizy ruchu.
+</p>
+
+<button onclick="acceptCookies()">
+Akceptuję
+</button>
+
+</div>
+
 <script>
+
+/* COOKIES */
+
+function acceptCookies(){
+
+    localStorage.setItem(
+    "cookiesAccepted",
+    "true"
+    );
+
+    document.getElementById(
+    "cookies"
+    ).style.display = "none";
+
+}
+
+window.onload = function(){
+
+    if(localStorage.getItem(
+    "cookiesAccepted")){
+
+        document.getElementById(
+        "cookies"
+        ).style.display = "none";
+
+    }
+
+}
 
 /* LIGHTBOX */
 
@@ -788,31 +964,9 @@ lightbox.classList.remove('active');
 
 });
 
-/* REVEAL */
-
-const reveals =
-document.querySelectorAll('.reveal');
-
-window.addEventListener('scroll',()=>{
-
-reveals.forEach(el=>{
-
-const top =
-el.getBoundingClientRect().top;
-
-if(top < window.innerHeight - 100){
-
-el.classList.add('active');
-
-}
-
-});
-
-});
-
 /* MAP */
 
-const map = L.map('attractionsMap')
+const map = L.map('map')
 .setView([51.3225,21.9489],12);
 
 L.tileLayer(
@@ -844,7 +998,7 @@ coords:[51.3350,21.9215]
 },
 
 {
-name:"Zamek w Janowcu",
+name:"Janowiec",
 coords:[51.3237,21.8917]
 }
 
@@ -863,7 +1017,7 @@ L.polyline([
 [51.3300,21.9350],
 [51.3350,21.9215]
 ],{
-color:'#d2b47c',
+color:'green',
 weight:5
 }).addTo(map);
 
