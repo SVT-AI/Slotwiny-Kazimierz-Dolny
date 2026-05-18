@@ -628,5 +628,246 @@ window.onload = function(){
 
 </script>
 
+<!-- ATRAKCJE -->
+
+<section id="atrakcje" class="reveal">
+
+<h2>Atrakcje okolicy</h2>
+
+<div id="attractionsMap"></div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section id="opinie" class="reveal">
+
+<h2>Opinie gości</h2>
+
+<div class="reviews-grid">
+
+<div class="review-card glass">
+
+<strong>Anna • Warszawa</strong>
+
+<p>
+„Najbardziej klimatyczne miejsce,
+w jakim byliśmy od lat.”
+</p>
+
+</div>
+
+<div class="review-card glass">
+
+<strong>Piotr • Kraków</strong>
+
+<p>
+„Prywatny las robi niesamowity klimat.
+Wieczory przy ognisku były genialne.”
+</p>
+
+</div>
+
+<div class="review-card glass">
+
+<strong>Katarzyna • Gdańsk</strong>
+
+<p>
+„Wygląda jeszcze lepiej niż na zdjęciach.”
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="kontakt" class="reveal">
+
+<h2>Rezerwacja pobytu</h2>
+
+<p class="section-sub">
+Napisz do nas i sprawdź dostępność terminów.
+</p>
+
+<form
+action="https://formspree.io/f/yourID"
+method="POST">
+
+<input type="text" placeholder="Imię" required>
+
+<input type="email" placeholder="E-mail" required>
+
+<input type="date" required>
+
+<input type="date" required>
+
+<textarea
+rows="6"
+placeholder="Dodatkowe informacje"></textarea>
+
+<button class="btn btn-primary" type="submit">
+Wyślij zapytanie
+</button>
+
+</form>
+
+</section>
+
+<footer>
+
+© 2026 Czerwone Łąki • Luxury Nature Retreat
+
+</footer>
+
+<!-- MOBILE BUTTON -->
+
+<div class="mobile-book">
+
+<a href="#kontakt" class="btn btn-primary"
+style="display:block;text-align:center;">
+Zarezerwuj pobyt
+</a>
+
+</div>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+<span class="lightbox-close" id="lightboxClose">
+&times;
+</span>
+
+<img id="lightboxImg">
+
+</div>
+
+<script>
+
+/* LIGHTBOX */
+
+const galleryImages =
+document.querySelectorAll('.gallery img');
+
+const lightbox =
+document.getElementById('lightbox');
+
+const lightboxImg =
+document.getElementById('lightboxImg');
+
+const lightboxClose =
+document.getElementById('lightboxClose');
+
+galleryImages.forEach(img=>{
+
+img.addEventListener('click',()=>{
+
+lightbox.classList.add('active');
+lightboxImg.src = img.src;
+
+});
+
+});
+
+lightboxClose.addEventListener('click',()=>{
+
+lightbox.classList.remove('active');
+
+});
+
+lightbox.addEventListener('click',(e)=>{
+
+if(e.target === lightbox){
+
+lightbox.classList.remove('active');
+
+}
+
+});
+
+/* REVEAL */
+
+const reveals =
+document.querySelectorAll('.reveal');
+
+window.addEventListener('scroll',()=>{
+
+reveals.forEach(el=>{
+
+const top =
+el.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 100){
+
+el.classList.add('active');
+
+}
+
+});
+
+});
+
+/* MAP */
+
+const map = L.map('attractionsMap')
+.setView([51.3225,21.9489],12);
+
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+attribution:'© OpenStreetMap'
+}).addTo(map);
+
+const places = [
+
+{
+name:"Kazimierz Dolny",
+coords:[51.3225,21.9489]
+},
+
+{
+name:"Baszta",
+coords:[51.3216,21.9465]
+},
+
+{
+name:"Wąwóz Korzeniowy Dół",
+coords:[51.3145,21.9304]
+},
+
+{
+name:"Mięćmierz",
+coords:[51.3350,21.9215]
+},
+
+{
+name:"Zamek w Janowcu",
+coords:[51.3237,21.8917]
+}
+
+];
+
+places.forEach(place=>{
+
+L.marker(place.coords)
+.addTo(map)
+.bindPopup(place.name);
+
+});
+
+L.polyline([
+[51.3225,21.9489],
+[51.3300,21.9350],
+[51.3350,21.9215]
+],{
+color:'#d2b47c',
+weight:5
+}).addTo(map);
+
+</script>
+
 </body>
 </html>
